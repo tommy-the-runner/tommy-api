@@ -1,0 +1,39 @@
+{
+  "name": "tommy-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommy-the-runner/tommy-api.git"
+  },
+  "author": "ertrzyiks <mateusz.derks@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommy-the-runner/tommy-api/issues"
+  },
+  "homepage": "https://github.com/tommy-the-runner/tommy-api#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cucumber": "^0.10.2",
+    "hapi": "^13.3.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.0",
+    "config": "^1.20.1",
+    "debug": "^2.2.0",
+    "dotenv": "^2.0.0",
+    "hapi-bunyan": "^0.6.0",
+    "inert": "^3.2.0",
+    "joi": "^8.0.5",
+    "js-yaml": "^3.5.5",
+    "lout": "^9.0.0",
+    "vision": "^4.1.0"
+  }
+}
