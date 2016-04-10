@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:e2e": "cucumber.js",
+    "test:unit": "mocha specs/**/*.spec.js",
+    "test": "npm run test:unit && npm run test:e2e"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,13 @@
   "homepage": "https://github.com/tommy-the-runner/tommy-api#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
     "cucumber": "^0.10.2",
+    "get-value": "^2.0.5",
     "hapi": "^13.3.0",
+    "lodash": "^4.9.0",
     "mocha": "^2.4.5",
+    "set-value": "^0.3.3",
     "sinon": "^1.17.3"
   },
   "dependencies": {

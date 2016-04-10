@@ -7,11 +7,11 @@ function setupRoute(server, options, next) {
     server.route([
         {
             method: 'GET',
-            path: '/v1/excercises',
+            path: '/v1/exercises',
             config: {
                 validate: {},
                 handler: function (request, reply) { reply({ data: [] })},
-                description: 'Excercise list',
+                description: 'Exercise list',
                 tags: ['api']
             }
         }
@@ -22,6 +22,6 @@ function setupRoute(server, options, next) {
 
 exports.register = setupRoute
 exports.register.attributes = {
-    name: 'routes-excercises',
+    name: 'routes-exercises',
     version: '1.0.0'
 }

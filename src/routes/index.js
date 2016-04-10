@@ -3,7 +3,7 @@
 function setupRouting(server, options, next) {
 
     let routes = [
-        require('./excercises')
+        require('./exercises')
     ]
 
     server.register(routes, {}, (err) => {
@@ -15,8 +15,6 @@ function setupRouting(server, options, next) {
 
         next()
     })
-
-    next()
 }
 
 exports.register = setupRouting
