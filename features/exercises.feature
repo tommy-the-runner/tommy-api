@@ -11,5 +11,5 @@ Feature: Exercises
     Given I am the API client
     When I request for list of exercises
     Then I should see number of total exercises equal "2"
-    And I should see exertices "Sum of two numbers"
-    And I should see exertices "Multiplication of two numbers"
+    And I should see exercices "Sum of two numbers"
+    And I should see exercices "Multiplication of two numbers"

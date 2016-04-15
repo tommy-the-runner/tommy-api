@@ -9,6 +9,8 @@ const config = require('config')
 const getPlugins = require('../../src/plugins')
 const getServer = require('../../src/server')
 
+const agent = require('supertest-as-promised').agent
+
 let exerciseCollection
 let Exercise
 
@@ -19,6 +21,7 @@ exposePlugin.register = function (server, options, next) {
 
     next()
 }
+
 exposePlugin.register.attributes = {
     name: 'expose-plugin',
     version: '1.0.0',
@@ -51,6 +54,9 @@ class HapiWorld {
             .then(() => server.register(plugins.list, plugins.options))
             .then(() => server.register(exposePlugin))
             .then(() => server.start())
+            .then(() => {
+                this.request = agent(server.listener)
+            })
             .catch(err => console.log(err, err.stack))
     }
 
@@ -107,6 +113,12 @@ class TommyApiWorld extends RequestableHapiWorld {
         const ex = Exercise.create(data.title, data.specsCode)
 
         return exerciseCollection.add(ex)
+    }
+
+    getExercises() {
+        return this.request
+            .get('/v1/exercises')
+            .then(res => this.captureLastResponse(res))
     }
 }
 
