@@ -1,13 +1,40 @@
 'use strict'
 
+const config = require('config')
+const debug = require('debug')('tommy-api:core')
 const Exercise = require('../lib/exercise')
 const ExerciseCollection = require('../lib/exercise_collection')
 
-function setupModel(server, options, next) {
-    server.expose('Exercise', Exercise)
-    server.expose('exerciseCollection', new ExerciseCollection())
+function seedExamples(collection) {
+    const examples = [
+        Exercise.create('Sum of two numbers', 'describe("it")'),
+        Exercise.create('Multiplication of two numbers', 'describe("it")')
+    ]
 
-    next()
+    const initialValue = Promise.resolve()
+
+    return examples
+        .reduce((promise, example) => {
+            const title = example.get('title')
+            debug(`Seeding with example: "${title}"...`)
+
+            return promise.then(() => collection.add(example))
+        }, initialValue)
+}
+
+function setupModel(server, options, next) {
+    const collection = new ExerciseCollection()
+
+    server.expose('Exercise', Exercise)
+    server.expose('exerciseCollection', collection)
+
+    if (!config.get('tommy.seed_examples')) {
+        next()
+        return
+    }
+
+    seedExamples(collection)
+        .then(() => next())
 }
 
 exports.register = setupModel

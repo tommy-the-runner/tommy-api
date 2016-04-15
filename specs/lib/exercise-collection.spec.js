@@ -32,6 +32,6 @@ describe('Exercise collection', function () {
         const creations = exercises.map(ex => collection.add(ex))
 
         return Promise.all(creations)
-            .then(() => expect(collection.getElements()).to.eventually.have.length(2))
+            .then(() => expect(collection.getElements()).to.eventually.have.property('size').equal(2))
     })
 })
