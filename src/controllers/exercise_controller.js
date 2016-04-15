@@ -22,6 +22,19 @@ class ExerciseController {
                 })
             })
     }
+
+    fetchOne(request, reply) {
+        const id = request.params.id
+
+        this.exerciseCollection
+            .getById(id)
+            .then(exercise => {
+                reply(exercise)
+            })
+            .catch(err => {
+                reply(err).code(500)
+            })
+    }
 }
 
 module.exports = ExerciseController

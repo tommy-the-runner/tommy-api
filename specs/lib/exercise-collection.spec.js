@@ -3,6 +3,7 @@
 const chai = require('chai')
 const expect = chai.expect
 
+chai.use(require('chai-immutable'))
 chai.use(require('chai-as-promised'))
 
 const Exercise = require('../../lib/exercise')
@@ -24,14 +25,35 @@ describe('Exercise collection', function () {
             .then(() => expect(collection.count()).to.eventually.equal(1))
     })
 
-    it('should allow to list exercises', function () {
-        const ex1 = Exercise.create('Sum of two numbers', 'describe("Sum")')
-        const ex2 = Exercise.create('Multiplication of two numbers', 'describe("Multiplication")')
+    describe('getElements', function () {
+        it('should allow to list exercises', function () {
+            const ex1 = Exercise.create('Sum of two numbers', 'describe("Sum")')
+            const ex2 = Exercise.create('Multiplication of two numbers', 'describe("Multiplication")')
 
-        const exercises = [ex1, ex2]
-        const creations = exercises.map(ex => collection.add(ex))
+            const exercises = [ex1, ex2]
+            const creations = exercises.map(ex => collection.add(ex))
 
-        return Promise.all(creations)
-            .then(() => expect(collection.getElements()).to.eventually.have.property('size').equal(2))
+            return Promise.all(creations)
+                .then(() => expect(collection.getElements()).to.eventually.have.size(2))
+        })
+    })
+
+    describe('getById', function () {
+        it('should allow to get exercise by id', function () {
+            const ex1 = Exercise.create('Sum of two numbers', 'describe("Sum")')
+            const ex2 = Exercise.create('Multiplication of two numbers', 'describe("Multiplication")')
+
+            const exercises = [ex1, ex2]
+            const creations = exercises.map(ex => collection.add(ex))
+
+            const id = ex1.get('id')
+
+            return Promise.all(creations)
+                .then(() => expect(collection.getById(id)).to.eventually.equal(ex1))
+        })
+
+        it('should resolve with null when not found', function () {
+            return expect(collection.getById('123')).to.eventually.be.null
+        })
     })
 })

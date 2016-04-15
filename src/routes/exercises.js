@@ -19,6 +19,16 @@ function setupRoute(server, options, next) {
                 description: 'Exercise list',
                 tags: ['api']
             }
+        },
+        {
+            method: 'GET',
+            path: '/v1/exercises/{id}',
+            config: {
+                validate: {},
+                handler: controller.fetchOne,
+                description: 'Exercise details',
+                tags: ['api']
+            }
         }
     ])
 
