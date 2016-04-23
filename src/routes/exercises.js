@@ -1,6 +1,5 @@
 'use strict'
 
-const config = require('config')
 const ExerciseController = require('../controllers/exercise_controller')
 
 function setupRoute(server, options, next) {
