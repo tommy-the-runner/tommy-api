@@ -8,17 +8,17 @@ class ExerciseController {
     fetchList(request, reply) {
         const jobs = [
             this.exerciseCollection.count(),
-            this.exerciseCollection.getElements()
+            this.exerciseCollection.getList()
         ]
 
         Promise.all(jobs)
             .then(results => {
                 const count = results[0]
-                const elements = results[1]
+                const list = results[1]
 
                 reply({
                     totalCount: count,
-                    data: elements
+                    data: list
                 })
             })
     }
