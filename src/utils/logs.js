@@ -1,3 +1,5 @@
+'use strict'
+
 const bunyan = require('bunyan')
 const HapiBunyanHandler = require('hapi-bunyan')
 const Package = require('./../../package')
