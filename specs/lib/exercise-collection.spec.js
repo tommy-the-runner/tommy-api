@@ -34,7 +34,7 @@ describe('Exercise collection', function () {
             const creations = exercises.map(ex => collection.add(ex))
 
             return Promise.all(creations)
-                .then(() => expect(collection.getElements()).to.eventually.have.size(2))
+                .then(() => expect(collection.getList()).to.eventually.have.size(2))
         })
     })
 
