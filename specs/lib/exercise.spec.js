@@ -10,6 +10,7 @@ describe('Exercise', function () {
         const ex1 = Exercise.create('Sum of two numbers', 'describe("Sum")')
 
         expect(ex1.get('id')).to.not.be.undefined
+        expect(ex1.get('slug')).to.equal('sum-of-two-numbers')
         expect(ex1.get('title')).to.equal('Sum of two numbers')
         expect(ex1.get('specsCode')).to.equal('describe("Sum")')
     })

@@ -56,4 +56,21 @@ describe('Exercise collection', function () {
             return expect(collection.getById('123')).to.eventually.be.null
         })
     })
+
+    describe('getBySlug', function () {
+
+        it('should allow to find exercise by slug', function () {
+            const ex1 = Exercise.create('Sum of two numbers', 'describe("Sum")')
+            const ex2 = Exercise.create('Multiplication of two numbers', 'describe("Multiplication")')
+
+            const exercises = [ex1, ex2]
+            const creations = exercises.map(ex => collection.add(ex))
+
+            return Promise.all(creations)
+                .then(() => {
+                    return expect(collection.getBySlug('multiplication-of-two-numbers'))
+                        .to.eventually.equal(ex2)
+                })
+        })
+    })
 })
