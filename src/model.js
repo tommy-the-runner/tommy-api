@@ -1,15 +1,27 @@
 'use strict'
 
 const config = require('config')
+const Map = require('immutable').Map
+const fs = require('fs')
+const path = require('path')
 const debug = require('debug')('tommy-api:core')
 const Exercise = require('../lib/exercise')
 const ExerciseCollection = require('../lib/exercise_collection')
 
 function seedExamples(collection) {
-    const examples = [
-        Exercise.create('Sum of two numbers', 'describe("it")'),
-        Exercise.create('Multiplication of two numbers', 'describe("it")')
+    const fixtures = [
+        Map({ title: 'Sum of two numbers', file: 'sum.spec.js' }),
+        Map({ title: 'Multiplication of two numbers', file: 'multiplication.spec.js' })
     ]
+
+    const examples = fixtures.map(ex => {
+        const title = ex.get('title')
+        const file = ex.get('file')
+        const fullpath = path.join(__dirname, '..', 'fixtures', file)
+        const code = fs.readFileSync(fullpath).toString()
+
+        return Exercise.create(title, code)
+    })
 
     const initialValue = Promise.resolve()
 
