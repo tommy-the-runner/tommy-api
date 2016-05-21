@@ -27,6 +27,10 @@ module.exports = function () {
         return this.getExerciseById(id)
     })
 
+    this.When(/^I request details of item with the slug "([^"]*)"$/, function (slug) {
+        return this.getExerciseBySlug(slug)
+    })
+
     this.Then(/^I should see number of total exercises equal "([^"]*)"$/, function (total) {
         const body = this.getLastResponseBody()
 
@@ -35,10 +39,10 @@ module.exports = function () {
         expect(body.totalCount).to.equal(expectedTotalCount)
     })
 
-    this.Then(/^I should see exercise "([^"]*)"$/, function (title) {
+    this.Then(/^I should see( just)? exercise "([^"]*)"$/, function (just, title) {
         const body = this.getLastResponseBody()
 
-        if (body.data) {
+        if (body.data && !just) {
             const data = body.data
 
             const result = data.filter(exercise => {
