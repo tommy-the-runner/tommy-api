@@ -6,6 +6,10 @@ class ExerciseController {
     }
 
     fetchList(request, reply) {
+        if (request.query.slug) {
+            return this.fetchOneBySlug(request, reply)
+        }
+
         const jobs = [
             this.exerciseCollection.count(),
             this.exerciseCollection.getList()
@@ -28,6 +32,19 @@ class ExerciseController {
 
         this.exerciseCollection
             .getById(id)
+            .then(exercise => {
+                reply(exercise)
+            })
+            .catch(err => {
+                reply(err).code(500)
+            })
+    }
+
+    fetchOneBySlug(request, reply) {
+        const slug = request.query.slug
+
+        this.exerciseCollection
+            .getBySlug(slug)
             .then(exercise => {
                 reply(exercise)
             })

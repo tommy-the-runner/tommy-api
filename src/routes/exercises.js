@@ -1,5 +1,6 @@
 'use strict'
 
+const joi = require('joi')
 const ExerciseController = require('../controllers/exercise_controller')
 
 function setupRoute(server, options, next) {
@@ -13,7 +14,11 @@ function setupRoute(server, options, next) {
             method: 'GET',
             path: '/v1/exercises',
             config: {
-                validate: {},
+                validate: {
+                    query: {
+                        slug: joi.string()
+                    }
+                },
                 handler: controller.fetchList,
                 description: 'Exercise list',
                 tags: ['api']

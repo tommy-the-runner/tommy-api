@@ -126,6 +126,12 @@ class TommyApiWorld extends RequestableHapiWorld {
             .get(`/v1/exercises/${id}`)
             .then(res => this.captureLastResponse(res))
     }
+
+    getExerciseBySlug(slug) {
+        return this.request
+            .get(`/v1/exercises?slug=${slug}`)
+            .then(res => this.captureLastResponse(res))
+    }
 }
 
 module.exports = function () {

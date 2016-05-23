@@ -19,5 +19,11 @@ Feature: Exercises
     Given I am the API client
     When I request for list of exercises
     And I request details of first item
-    Then I should see exercise "Sum of two numbers"
+    Then I should see just exercise "Sum of two numbers"
+    And I should see exercise specs
+
+  Scenario: Fetching single exercises by the slug
+    Given I am the API client
+    When I request details of item with the slug "sum-of-two-numbers"
+    Then I should see just exercise "Sum of two numbers"
     And I should see exercise specs
