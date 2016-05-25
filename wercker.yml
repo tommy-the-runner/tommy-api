@@ -25,3 +25,21 @@ deploy:
           echo "Pushing to: $GIT_DEPLOY_USER@$GIT_DEPLOY_HOST:$GIT_DEPLOY_APP"
           git remote add dokku $GIT_DEPLOY_USER@$GIT_DEPLOY_HOST:$GIT_DEPLOY_APP
           git push dokku HEAD:master -f
+
+generate_docs:
+  steps:
+    - script:
+        name: Install dependencies
+        code: |
+          npm install -g bootprint
+          npm install -g bootprint-openapi
+
+    - script:
+        name: Generate documentation
+        code: |
+          bootprint openapi $OPEN_API_URL docs
+
+    - uetchy/gh-pages:
+        token: $GITHUB_TOKEN
+        repo: tommy-the-runner/tommy-api
+        path: docs
