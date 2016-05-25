@@ -5,16 +5,20 @@ const routing = require('./routes')
 const model = require('./model')
 const vision = require('vision')
 const inert = require('inert')
-const lout = require('lout')
+const swaggered = require('hapi-swaggered')
 
 function getPlugins(config) {
     const plugins = [
         vision,
         inert,
         {
-            register: lout,
+            register: swaggered,
             options: {
-                endpoint: '/docs'
+                info: {
+                    title: 'Tommy API',
+                    description: 'Powered by node, hapi and joi',
+                    version: '1.0'
+                }
             }
         },
         model,
