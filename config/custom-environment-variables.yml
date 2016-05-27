@@ -1,6 +1,0 @@
-server:
-  host: 'HOST'
-  port: 'PORT'
-
-logger:
-  enabled: 'DEBUG'
