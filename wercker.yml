@@ -29,17 +29,31 @@ deploy:
 generate_docs:
   steps:
     - script:
-        name: Install dependencies
+        name: Remove modules
         code: |
-          npm install -g bootprint
-          npm install -g bootprint-openapi
+          rm -fr node_modules
+
+    - npm-install
+
+    - add-to-known_hosts:
+        hostname: github.com
+        fingerprint: 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48
+        type: rsa
 
     - script:
         name: Generate documentation
         code: |
-          bootprint openapi $OPEN_API_URL docs
+          npm run bootprint -- openapi $OPEN_API_URL docs
 
-    - uetchy/gh-pages:
-        token: $GITHUB_TOKEN
-        repo: tommy-the-runner/tommy-api
-        path: docs
+    - script:
+        name: Configure git
+        code: |
+          git config --global user.email "pleasemailus@wercker.com"
+          git config --global user.name "Wercker Deployment"
+          
+    - script:
+        name: Update docs
+        code: |
+          npm run update-docs
+
+
