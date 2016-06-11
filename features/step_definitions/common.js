@@ -72,4 +72,15 @@ module.exports = function () {
 
         expect(body.specsCode).to.be.ok
     })
+
+    this.Then(/^I should get status "([^"]*)"$/, function (expectedStatus) {
+        const expectedStatusNumber = parseInt(expectedStatus, 10)
+        const status = this.getLastResponseCode()
+        expect(status).to.eq(expectedStatusNumber)
+    })
+
+    this.Then(/^I should see an error "([^"]*)"$/, function (message) {
+        const body = this.getLastResponseBody()
+        expect(body).to.have.property('error').equal(message)
+    });
 }
