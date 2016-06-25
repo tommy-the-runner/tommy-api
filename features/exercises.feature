@@ -27,3 +27,9 @@ Feature: Exercises
     When I request details of item with the slug "sum-of-two-numbers"
     Then I should see just exercise "Sum of two numbers"
     And I should see exercise specs
+
+  Scenario: Fetching single exercises by the invalid slug
+    Given I am the API client
+    When I request details of item with the slug "invalid-slug"
+    Then I should get status "404"
+    And I should see an error "Not Found"

@@ -1,5 +1,7 @@
 'use strict'
 
+const Boom = require('boom')
+
 class ExerciseController {
     constructor(model) {
         this.exerciseCollection = model.exerciseCollection
@@ -46,6 +48,10 @@ class ExerciseController {
         this.exerciseCollection
             .getBySlug(slug)
             .then(exercise => {
+                if (!exercise) {
+                    reply(Boom.notFound())
+                    return
+                }
                 reply(exercise)
             })
             .catch(err => {
