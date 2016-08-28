@@ -2,6 +2,12 @@ server:
   host: '0.0.0.0'
   port: 3001
 
+statsd:
+  enabled: false
+  host: '127.0.0.1'
+  port: 8125
+  prefix: 'tommy-api'
+
 tommy:
   seed_examples: true
 

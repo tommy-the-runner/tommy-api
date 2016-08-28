@@ -2293,6 +2293,18 @@
       "from": "hapi-bunyan@>=0.6.0 <0.7.0",
       "resolved": "https://registry.npmjs.org/hapi-bunyan/-/hapi-bunyan-0.6.0.tgz"
     },
+    "hapi-statsd": {
+      "version": "5.0.1",
+      "from": "hapi-statsd@latest",
+      "resolved": "https://registry.npmjs.org/hapi-statsd/-/hapi-statsd-5.0.1.tgz",
+      "dependencies": {
+        "statsd-client": {
+          "version": "0.2.2",
+          "from": "statsd-client@>=0.0.0 <1.0.0",
+          "resolved": "https://registry.npmjs.org/statsd-client/-/statsd-client-0.2.2.tgz"
+        }
+      }
+    },
     "hapi-swaggered": {
       "version": "2.6.0",
       "from": "hapi-swaggered@>=2.6.0 <3.0.0",

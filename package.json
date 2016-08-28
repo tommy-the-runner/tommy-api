@@ -50,6 +50,7 @@
     "dotenv": "^2.0.0",
     "hapi": "^13.3.0",
     "hapi-bunyan": "^0.6.0",
+    "hapi-statsd": "^5.0.1",
     "hapi-swaggered": "^2.6.0",
     "immutable": "^3.7.6",
     "inert": "^3.2.0",
