@@ -19,6 +19,11 @@ function seedExamples(collection) {
             title: 'Render action button',
             spec_file: 'render_action_button.spec.js',
             initial_code_file: 'render_action_button.code.js'
+        }),
+        Map({
+            title: 'Render html element',
+            spec_file: 'render_html.spec.js',
+            initial_code_file: 'render_html.code.js'
         })
     ]
 
