@@ -24,6 +24,11 @@ function seedExamples(collection) {
             title: 'Render html element',
             spec_file: 'render_html.spec.js',
             initial_code_file: 'render_html.code.js'
+        }),
+        Map({
+            title: 'Mocha + Chai + Sinon',
+            spec_file: 'util.spec.js',
+            initial_code_file: 'util.code.js'
         })
     ]
 
