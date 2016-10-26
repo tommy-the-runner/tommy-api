@@ -7,17 +7,17 @@ describe('renderActionButton', function () {
     var html = renderActionButton('Download')
 
     expect(html).to.equal(
-      '<button class="action-button">Download</button>'
+      '<button type="button">Download</button>'
     )
   })
 
   it('should apply a custom modifier', function () {
     var html = renderActionButton('Buy', {
-      modifier: 'is-buy_button'
+      'class': 'buy_button'
     })
 
     expect(html).to.equal(
-      '<button class="action-button is-buy_button">Buy</button>'
+      '<button type="button" class="buy_button">Buy</button>'
     )
   })
 })

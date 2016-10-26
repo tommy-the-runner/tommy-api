@@ -1,5 +1,5 @@
 function renderActionButton(label, options) {
-  // return html code here
+  return 'your solution'
 }
 
 module.exports = renderActionButton
