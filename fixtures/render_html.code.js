@@ -5,7 +5,10 @@ function renderHtml(tagName, attrs, children) {
     attributes += ' ' + key + '="' + attrs[key]+ '"'
   }
 
-  return '<' + tagName + attributes + '>' + childrenHtml + '</' +tagName + '>'
+  var startTag = '<' + tagName + attributes + '>'
+  var endTag = '</' + tagName + '>'
+
+  return  startTag + childrenHtml + endTag
 }
 
 module.exports = renderHtml
