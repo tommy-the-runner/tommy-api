@@ -1,10 +1,10 @@
-var MyClass = require('subject')
+var util = require('subject')
+var divide = util.divide
 
-describe('MyClass', function () {
-  describe('sayHello', function () {
-    it('should say "Hello"', function () {
-      var object = new MyClass()
-      expect(object.sayHello()).to.equal('Hello')
+describe('util', function () {
+  describe('divide', function () {
+    it('should return correct result', function () {
+      expect(divide(20, 4)).to.equal(5)
     })
   })
 })
