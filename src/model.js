@@ -37,6 +37,11 @@ function seedExamples(collection) {
             title: 'The structure - basic example',
             spec_file: 'structure/basic.spec.js',
             initial_code_file: 'structure/basic.code.js'
+        }),
+        Map({
+            title: 'The structure - describe block example',
+            spec_file: 'structure/describe.spec.js',
+            initial_code_file: 'structure/describe.code.js'
         })
     ]
 
