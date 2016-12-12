@@ -1,7 +1,7 @@
-function MyClass() {}
-
-MyClass.prototype.sayHello = function () {
-  return 'Hello'
+var util = {
+  divide: function divide(a, b) {
+    return a / b
+  }
 }
 
-module.exports = MyClass
+module.exports = util

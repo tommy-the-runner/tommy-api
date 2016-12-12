@@ -1,8 +1,9 @@
-var add = require('subject')
+var util = require('subject')
+var divide = util.divide
 
 it('should return 5', function () {
-  var result = add(2, 3)
+  var result = divide(20, 4)
   if (result !== 5) {
-    throw 'Expected add(2, 3) to equal 5, got ' + result + ' instead'
+    throw 'Expected divide(20, 4) to equal 5, got ' + result + ' instead'
   }
 })
