@@ -32,6 +32,11 @@ function seedExamples(collection) {
             title: 'Mocha + Chai + Sinon',
             spec_file: 'util.spec.js',
             initial_code_file: 'util.code.js'
+        }),
+        Map({
+            title: 'The structure - basic example',
+            spec_file: 'structure/basic.spec.js',
+            initial_code_file: 'structure/basic.code.js'
         })
     ]
 
