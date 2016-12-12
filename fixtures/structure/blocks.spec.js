@@ -1,3 +1,5 @@
+var expect = require('chai').expect
+
 var util = require('subject')
 var divide = util.divide
 

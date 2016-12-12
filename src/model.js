@@ -39,14 +39,9 @@ function seedExamples(collection) {
             initial_code_file: 'structure/basic.code.js'
         }),
         Map({
-            title: 'The structure - describe block example',
-            spec_file: 'structure/describe.spec.js',
-            initial_code_file: 'structure/describe.code.js'
-        }),
-        Map({
-            title: 'The structure - context block example',
-            spec_file: 'structure/context.spec.js',
-            initial_code_file: 'structure/context.code.js'
+            title: 'The structure -  blocks example',
+            spec_file: 'structure/blocks.spec.js',
+            initial_code_file: 'structure/blocks.code.js'
         })
     ]
 
