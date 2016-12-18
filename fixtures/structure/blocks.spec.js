@@ -11,7 +11,7 @@ describe('util', function () {
       })
     })
 
-    context('when dividing by value different than 0', function () {
+    context('when dividing by value > 0', function () {
       it('should return correct result', function () {
         expect(divide(20, 4)).to.equal(5)
       })
