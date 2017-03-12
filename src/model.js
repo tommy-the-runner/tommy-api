@@ -47,6 +47,11 @@ function seedExamples(collection) {
             title: 'The structure -  hooks example',
             spec_file: 'structure/hooks.spec.js',
             initial_code_file: 'structure/hooks.code.js'
+        }),
+        Map({
+            title: 'Assertions - false negatives',
+            spec_file: 'assertions/false_negative.spec.js',
+            initial_code_file: 'assertions/false_negative.code.js'
         })
     ]
 
