@@ -52,6 +52,11 @@ function seedExamples(collection) {
             title: 'Assertions - false negatives',
             spec_file: 'assertions/false_negative.spec.js',
             initial_code_file: 'assertions/false_negative.code.js'
+        }),
+        Map({
+            title: 'Assertions - custom matcher',
+            spec_file: 'assertions/custom_matcher.spec.js',
+            initial_code_file: 'assertions/custom_matcher.code.js'
         })
     ]
 
