@@ -1,4 +1,4 @@
-var doSomething = require('subject')
+var doSomething = require('the code from the left panel')
 
 describe('the method', function () {
   beforeEach(function () {

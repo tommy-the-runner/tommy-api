@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var renderHtml = /* your code here */
+var renderHtml = require('the code from the left panel')
 
 describe('renderHtml', function () {
 

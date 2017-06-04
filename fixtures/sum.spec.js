@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const sum = require('subject')
+const sum = require('the code from the left panel')
 
 describe('sum', function () {
 

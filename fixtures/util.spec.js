@@ -1,6 +1,6 @@
 var chai = require('chai')
 var sinon = require('sinon')
-var getFour = require('subject')
+var getFour = require('the code from the left panel')
 
 chai.use(require('sinon-chai'))
 

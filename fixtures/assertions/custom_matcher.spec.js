@@ -1,5 +1,5 @@
 var chai = require('chai')
-var chaiPost = /* the code from the left panel */
+var chaiPost = require('the code from the left panel')
 
 chai.use(chaiPost)
 
