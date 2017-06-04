@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var renderActionButton = require('subject')
+var renderActionButton = require('the code from the left panel')
 
 describe('renderActionButton', function () {
 
