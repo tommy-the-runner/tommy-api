@@ -1,5 +1,5 @@
 var chai = require('chai')
-var hasAccess = require('subject')
+var hasAccess = require('the code from the left panel')
 
 var expect = chai.expect
 

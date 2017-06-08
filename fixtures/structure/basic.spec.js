@@ -1,4 +1,4 @@
-var util = require('subject')
+var util = require('the code from the left panel')
 var divide = util.divide
 
 it('should return 5', function () {
